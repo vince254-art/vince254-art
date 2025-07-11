@@ -1,1 +1,9 @@
+title: Vince254's Art & Blog
+description: A collection of my stories, art, and creative projects.
+baseurl: "" # leave this blank on Netlify
+url: "" # leave blank, Netlify auto-detects
 
+theme: minima
+
+# Build settings
+markdown: kramdown
