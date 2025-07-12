@@ -1,64 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Vince Leintoi – Vince Times | Broadcasting in the Shadows</title>
-  <link rel="icon" href="favicon.ico" type="image/x-icon" />
-  <meta name="description" content="Vince Times - Broadcasting in the Shadows. Radio Presenter, Programmer, and Voice in the Shadows." />
-  <meta property="og:title" content="Vince Times | Broadcasting in the Shadows" />
-  <meta property="og:description" content="Radio Presenter. Programmer. Broadcasting Kenya’s voice in the shadows." />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://images.unsplash.com/photo-1549921296-3a7c1b509f3f" />
-  <meta property="og:url" content="https://yourdomain.com" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Vince Times | Broadcasting in the Shadows" />
-  <meta name="twitter:description" content="Radio Presenter. Programmer. Broadcasting Kenya’s voice in the shadows." />
-  <meta name="twitter:image" content="https://images.unsplash.com/photo-1549921296-3a7c1b509f3f" />
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
   
+  <!-- SEO & Social -->
+  <meta name="description" content="Vince Times - Broadcasting in the Shadows. Radio Presenter, Programmer, and Voice in the Shadows.">
+  <meta property="og:title" content="Vince Times | Broadcasting in the Shadows">
+  <meta property="og:description" content="Radio Presenter. Programmer. Broadcasting Kenya’s voice in the shadows.">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1549921296-3a7c1b509f3f">
+  <meta property="og:url" content="https://yourdomain.com">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Vince Times | Broadcasting in the Shadows">
+  <meta name="twitter:description" content="Radio Presenter. Programmer. Broadcasting Kenya’s voice in the shadows.">
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1549921296-3a7c1b509f3f">
+
+  <!-- Tailwind -->
+  <script>
+    tailwind.config = {
+      darkMode: 'class'
+    }
+  </script>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
-  
+
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+  <!-- Custom Styles -->
   <style>
     body {
-      background-color: #000000;
-      color: #FFE5CC;
       font-family: 'Poppins', sans-serif;
-    }
-    h1, h2 {
-      background: linear-gradient(to right, #A11312, #FFE5CC);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      transition: transform 0.6s ease;
-    }
-    h1:hover, h2:hover {
-      transform: scale(1.05);
-    }
-    .section-bg {
-      background-color: #082c38;
-      border-radius: 1rem;
-      padding: 2rem;
-      margin-bottom: 2rem;
-    }
-    .link-color {
-      color: #FFE5CC;
-      transition: color 0.3s;
-    }
-    .link-color:hover {
-      color: #A11312;
-    }
-    button {
-      background-color: #A11312;
-      color: #FFE5CC;
-      border-radius: 9999px;
-      font-weight: 600;
-      transition: all 0.3s ease;
-    }
-    button:hover {
-      background-color: #FFE5CC;
-      color: #000000;
-      transform: scale(1.05);
+      transition: background-color 0.5s, color 0.5s;
     }
     .fade-cinematic {
       opacity: 0;
@@ -69,15 +44,15 @@
       opacity: 1;
       transform: translateY(0) scale(1);
     }
-    .active-link {
-      font-weight: bold;
-      color: #A11312 !important;
-    }
     .gallery-img {
       border-radius: 1rem;
       width: 100%;
       height: 200px;
       object-fit: cover;
+    }
+    .active-link {
+      font-weight: bold;
+      color: #A11312 !important;
     }
     .animate-fade {
       animation: fadeIn 0.3s ease-in-out;
@@ -88,13 +63,16 @@
     }
   </style>
 </head>
-<body>
+<body class="bg-black text-[#FFE5CC] dark:bg-white dark:text-black">
 
 <!-- Navbar -->
-<nav class="flex justify-between items-center px-6 py-4 bg-[#082c38] sticky top-0 z-50">
+<nav class="flex justify-between items-center px-6 py-4 bg-[#082c38] dark:bg-gray-100 sticky top-0 z-50">
   <div class="text-2xl font-bold">Vince Times</div>
-  <button id="menu-btn" class="text-2xl link-color md:hidden"><i class="fas fa-bars"></i></button>
-  <div id="nav-links" class="hidden md:flex gap-4 md:gap-6 flex-col md:flex-row absolute md:static top-16 right-6 md:right-0 bg-[#082c38] md:bg-transparent p-4 md:p-0 rounded shadow-lg md:shadow-none">
+  <div class="flex items-center gap-4">
+    <button id="theme-toggle" class="text-xl link-color"><i class="fas fa-moon"></i></button>
+    <button id="menu-btn" class="text-2xl link-color md:hidden"><i class="fas fa-bars"></i></button>
+  </div>
+  <div id="nav-links" class="hidden md:flex gap-4 md:gap-6 flex-col md:flex-row absolute md:static top-16 right-6 md:right-0 bg-[#082c38] dark:bg-gray-100 p-4 md:p-0 rounded shadow-lg md:shadow-none">
     <a href="#" onclick="showSection('home', this)" class="link-color active-link">Home</a>
     <a href="#" onclick="showSection('about', this)" class="link-color">About</a>
     <a href="#" onclick="showSection('shows', this)" class="link-color">Shows</a>
@@ -105,13 +83,13 @@
 </nav>
 
 <!-- Hero -->
-<section id="home" class="section-bg container mx-auto px-4 fade-cinematic" style="margin-top:4cm;">
+<section id="home" class="section-bg container mx-auto px-4 fade-cinematic mt-16">
   <h1 class="text-5xl md:text-7xl font-bold text-center mb-4">Vince Times</h1>
   <p class="text-xl md:text-2xl italic text-center">Your Voice in the Shadows</p>
 </section>
 
 <!-- About -->
-<section id="about" class="mx-4 md:mx-32 fade-cinematic hidden" style="margin-top:4cm;">
+<section id="about" class="container mx-auto px-4 fade-cinematic hidden mt-16">
   <h2 class="text-4xl mb-8">Vincent Leintoi</h2>
   <div class="grid gap-6 md:grid-cols-3">
     <div class="section-bg hover:scale-105 transition">Radio Presenter. News Anchor.</div>
@@ -121,17 +99,17 @@
 </section>
 
 <!-- Shows -->
-<section id="shows" class="container mx-auto px-4 fade-cinematic hidden" style="margin-top:4cm;">
+<section id="shows" class="container mx-auto px-4 fade-cinematic hidden mt-16">
   <h2 class="text-4xl mb-8">Latest Shows</h2>
   <div class="grid gap-6 md:grid-cols-3">
-    <div class="section-bg hover:scale-105 transition">Breakfast Show, 6am–10am, Mon–Fri, only on Chuka University Radio – 98.8 FM</div>
+    <div class="section-bg hover:scale-105 transition">Breakfast Show, 6am–10am, Mon–Fri. Only on Chuka University Radio. 98.8 FM</div>
     <div class="section-bg hover:scale-105 transition">News Bulletin, Mon–Fri, 4pm</div>
-    <div class="section-bg hover:scale-105 transition">Podcast – The Treend Podcast. New episode every Saturday</div>
+    <div class="section-bg hover:scale-105 transition">Podcast: THE TREEND PODCAST – New episode every Saturday</div>
   </div>
 </section>
 
 <!-- Blog -->
-<section id="blog" class="container mx-auto px-4 fade-cinematic hidden" style="margin-top:3cm;">
+<section id="blog" class="container mx-auto px-4 fade-cinematic hidden mt-16">
   <h2 class="text-4xl mb-8">Blog</h2>
   <div class="grid gap-6 md:grid-cols-2">
     <div class="section-bg hover:scale-105 transition">
@@ -150,72 +128,83 @@
 </section>
 
 <!-- Gallery -->
-<section id="gallery" class="container mx-auto px-4 fade-cinematic hidden" style="margin-top:4cm;">
+<section id="gallery" class="container mx-auto px-4 fade-cinematic hidden mt-16">
   <h2 class="text-4xl mb-8">Gallery</h2>
   <div class="grid gap-4 md:grid-cols-3">
     <div class="section-bg hover:scale-105 transition">
-      <img src="https://source.unsplash.com/random/400x300?radio" alt="Vintage Radio Booth at Night" class="gallery-img" />
+      <img src="https://source.unsplash.com/random/400x300?radio" alt="Vintage Radio Booth at Night" class="gallery-img">
     </div>
     <div class="section-bg hover:scale-105 transition">
-      <img src="https://source.unsplash.com/random/400x300?microphone" alt="Close-up of a Studio Microphone" class="gallery-img" />
+      <img src="https://source.unsplash.com/random/400x300?microphone" alt="Classic Studio Microphone Close-Up" class="gallery-img">
     </div>
     <div class="section-bg hover:scale-105 transition">
-      <img src="https://source.unsplash.com/random/400x300?broadcast" alt="Broadcast Control Room in Action" class="gallery-img" />
+      <img src="https://source.unsplash.com/random/400x300?broadcast" alt="Live Broadcast Studio Setup" class="gallery-img">
     </div>
   </div>
 </section>
 
 <!-- Contact -->
-<section id="contact" class="section-bg container mx-auto px-4 fade-cinematic hidden" style="margin-top:4cm;">
+<section id="contact" class="section-bg container mx-auto px-4 fade-cinematic hidden mt-16">
   <h2 class="text-4xl mb-8">Contact</h2>
   <p><i class="fas fa-envelope link-color"></i> <a href="mailto:leintoivincent@gmail.com" class="link-color">leintoivincent@gmail.com</a></p>
   <p><i class="fas fa-phone link-color"></i> <span class="link-color">0702826429 / 0769848767</span></p>
   <div class="flex gap-6 mt-4">
     <a href="https://instagram.com/Vince-254" target="_blank" class="link-color text-2xl"><i class="fab fa-instagram"></i></a>
     <a href="https://x.com/VincentLeintoi" target="_blank" class="link-color text-2xl"><i class="fab fa-twitter"></i></a>
-    <a href="https://www.tiktok.com/@vinlee21?_t=ZM-8xwB1bkVhto&_r=1" target="_blank" class="link-color text-2xl"><i class="fab fa-tiktok"></i></a>
+    <a href="https://www.tiktok.com/@vinlee21" target="_blank" class="link-color text-2xl"><i class="fab fa-tiktok"></i></a>
     <a href="https://facebook.com/VincentLeintoi" target="_blank" class="link-color text-2xl"><i class="fab fa-facebook"></i></a>
   </div>
   <form action="https://formspree.io/f/xyzjrnpb" method="POST" class="flex flex-col gap-4 mt-6">
-    <input type="hidden" name="_redirect" value="thank-you.html" />
-    <input type="text" name="name" placeholder="Your Name" class="p-3 rounded bg-gray-800 text-white" required />
-    <input type="email" name="email" placeholder="Your Email" class="p-3 rounded bg-gray-800 text-white" required />
-    <textarea name="message" placeholder="Your Message" class="p-3 rounded bg-gray-800 text-white" required></textarea>
+    <input type="hidden" name="_redirect" value="thank-you.html">
+    <input type="text" name="name" placeholder="Your Name" class="p-3 rounded bg-gray-800 text-white dark:bg-gray-100 dark:text-black" required>
+    <input type="email" name="email" placeholder="Your Email" class="p-3 rounded bg-gray-800 text-white dark:bg-gray-100 dark:text-black" required>
+    <textarea name="message" placeholder="Your Message" class="p-3 rounded bg-gray-800 text-white dark:bg-gray-100 dark:text-black" required></textarea>
     <button type="submit">Send</button>
   </form>
 </section>
 
+<!-- Script -->
 <script>
-  const sections = document.querySelectorAll('section');
-  const links = document.querySelectorAll('#nav-links a');
-  const menuBtn = document.getElementById('menu-btn');
-  const navLinks = document.getElementById('nav-links');
+const sections = document.querySelectorAll('section');
+const links = document.querySelectorAll('#nav-links a');
+const menuBtn = document.getElementById('menu-btn');
+const navLinks = document.getElementById('nav-links');
 
-  function showSection(id, el) {
-    sections.forEach(sec => sec.classList.add('hidden', 'fade-cinematic'));
-    document.getElementById(id).classList.remove('hidden');
-    setTimeout(() => document.getElementById(id).classList.add('show'), 50);
-    links.forEach(link => link.classList.remove('active-link'));
-    if (el) el.classList.add('active-link');
-    if (window.innerWidth < 768) navLinks.classList.add('hidden');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+function showSection(id, el) {
+  sections.forEach(sec => sec.classList.add('hidden', 'fade-cinematic'));
+  const target = document.getElementById(id);
+  target.classList.remove('hidden');
+  setTimeout(() => target.classList.add('show'), 50);
+
+  links.forEach(link => link.classList.remove('active-link'));
+  if (el) el.classList.add('active-link');
+
+  if (window.innerWidth < 768) {
+    navLinks.classList.add('hidden');
   }
 
-  menuBtn.addEventListener('click', () => {
-    navLinks.classList.toggle('hidden');
-    navLinks.classList.toggle('animate-fade');
-  });
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
 
-  links.forEach(link => {
-    link.addEventListener('click', () => {
-      if (window.innerWidth < 768) navLinks.classList.add('hidden');
-    });
-  });
+menuBtn.addEventListener('click', () => {
+  navLinks.classList.toggle('hidden');
+});
 
-  window.addEventListener('DOMContentLoaded', () => {
-    showSection('home', document.querySelector('a[onclick*="home"]'));
+links.forEach(link => {
+  link.addEventListener('click', () => {
+    if (window.innerWidth < 768) navLinks.classList.add('hidden');
   });
+});
+
+window.addEventListener('DOMContentLoaded', () => {
+  showSection('home', document.querySelector('a[onclick*="home"]'));
+});
+
+// Dark Mode Toggle
+document.getElementById('theme-toggle').addEventListener('click', () => {
+  document.documentElement.classList.toggle('dark');
+});
 </script>
 
 </body>
-                                                                                            </html>
+    </html>
